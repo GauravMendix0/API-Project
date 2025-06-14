@@ -2,6 +2,7 @@ const {StudentDB}=require("../model/student");
 
 async function handleGet(req,res)
 {
+
     const stud=await StudentDB.findOne({
         studentRoll:1
     });
@@ -19,9 +20,9 @@ async function handleGet(req,res)
 async function handlegetall(req,res)
 {
     await StudentDB.find().then((stud=>{
-            res.json(stud);
-        })).catch((req,res)=>{
-            res.send("No entry in DB");
+            res.status(200).json(stud);
+        })).catch(()=>{
+            res.status(500).send("No entry in DB");
         })
 }
 
