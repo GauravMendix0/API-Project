@@ -1,6 +1,9 @@
 const express=require("express");
 const {StudentDB}=require("./model/student");
 const connectDB=require("./connection/conn");
+const yaml=require("yaml");
+const {swaggerSpec,swaggerUi}=require("./swagger1")
+const fs=require("fs");
 
 const route=require("./Routes/route");
 
@@ -9,13 +12,13 @@ app.use(express.json());
 
 connectDB();
 
+app.use("/api-docs",swaggerUi.serve,swaggerUi.setup(swaggerSpec));
 
-app.get("/",route);
-app.get("/getall",route);
-app.post("/create",route);
-app.patch("/update",route);
-app.delete("/delete",route);
-app.put("/updateall", route);
+
+app.use("/",route);
+
+const yamlfile = yaml.stringify(swaggerSpec);
+fs.writeFileSync("swagger-op.yaml",yamlfile);
 
 
 app.listen(8000,()=>{
