@@ -15,10 +15,10 @@ connectDB();
 app.use("/api-docs",swaggerUi.serve,swaggerUi.setup(swaggerSpec));
 
 
-app.use("/",route);
+app.use("/api/v1/students",route);
 
 const yamlfile = yaml.stringify(swaggerSpec);
-fs.writeFileSync("swagger-op.yaml",yamlfile);
+fs.writeFileSync("swagger-output.yaml",yamlfile);
 
 
 app.listen(8000,()=>{
