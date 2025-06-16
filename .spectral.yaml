@@ -1,5 +1,20 @@
 extends: spectral:oas
 
-# rules:
-#   info-contact:
-#     severity: off
+rules:
+  operation-description:
+    description: Every operation should have a non-empty description.
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: description
+      function: truthy
+
+  opration-id:
+    description: Every operation should have operation-id. 
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+    
+
