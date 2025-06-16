@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: tudent Management API
+  title: student Management API
   version: 1.0.0
   description: "API testing "
 servers:
-  - url: localhost:8000
+  - url: http://localhost:8000
 paths:
   /:
     get:
