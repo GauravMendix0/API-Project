@@ -2,7 +2,7 @@ const express=require("express");
 const {StudentDB}=require("./model/student");
 const connectDB=require("./connection/conn");
 const yaml=require("yaml");
-const {swaggerSpec,swaggerUi}=require("./swagger1")
+const {swaggerSpec,swaggerUi}=require("./swagger")
 const fs=require("fs");
 
 const route=require("./Routes/route");
