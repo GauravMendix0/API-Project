@@ -1,20 +1,20 @@
 const express=require("express");
 const {StudentDB}=require("../model/student");
-const {handleGet,handlegetall,handleCreate,handleUpdate,handleDelete,handleUpdateAll}=require("../Handler/handle")
+const {handleGet,handlegetall,handleCreate,handleUpdate,handleDelete,handleUpdateAll}=require("../Handler/handle1")
 
 const route=express.Router();
 
-route.get("/",handleGet);
+route.get("/:id",handleGet);
 
-route.get("/getall",handlegetall);
+route.get("/",handlegetall);
 
-route.post("/create",handleCreate);
+route.post("/",handleCreate);
 
-route.patch("/update",handleUpdate);
+route.patch("/:id",handleUpdate);
 
-route.put("/updateall", handleUpdateAll);
+route.put("/:id", handleUpdateAll);
 
-route.delete("/delete",handleDelete);
+route.delete("/:id",handleDelete);
 
 
 module.exports=route;
